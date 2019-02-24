@@ -1,0 +1,11 @@
+---
+  name: "routing_machine"
+  type: "neuron"
+  author: "redSpoutnik"
+
+  kalliope_supported_version:
+    - 0.5
+
+  tags:
+    - "osrm"
+    - "OpenSourceRoutingMachine"

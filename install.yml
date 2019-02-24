@@ -1,0 +1,14 @@
+- name: kalliope OSRM neuron install
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  become: true
+
+  tasks:
+    - name: "Install packages"
+      apt:
+        name: ['gdal-bin', 'python-gdal', 'python-tk']
+    - name: "Install pip dependencies"
+      pip:
+        name: osrm
+        version: 0.11.3
