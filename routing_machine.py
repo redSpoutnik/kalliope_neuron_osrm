@@ -14,7 +14,7 @@ class Routing_machine(NeuronModule):
         super(Routing_machine, self).__init__(**kwargs)
         # Configuration
         self.host = kwargs.get('host', 'router.project-osrm.org')
-        self.profil = kwargs.get('profil', 'driving')
+        self.profile = kwargs.get('profile', 'driving')
         # Parameters
         self.latitude1 = kwargs.get('latitude1', None)
         self.longitude1 = kwargs.get('longitude1', None)
@@ -32,7 +32,7 @@ class Routing_machine(NeuronModule):
 
         if self._is_parameters_ok():
             osrm.RequestConfig.host = self.host
-            osrm.RequestConfig.profile = self.profil
+            osrm.RequestConfig.profile = self.profile
 
             start = osrm.Point(latitude=float(self.latitude1), longitude=float(self.longitude1))
             end = osrm.Point(latitude=float(self.latitude2), longitude=float(self.longitude2))
@@ -45,7 +45,7 @@ class Routing_machine(NeuronModule):
                     "returncode": "OK",
                     "start": str(start),
                     "end": str(end),
-                    "profil": self.profil
+                    "profile": self.profile
                 }
 
                 if self.raw:
